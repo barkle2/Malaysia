@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About the Speaker | Kim Dong Hyeon</title>
+  <style>
+    :root {
+      --navy: #101f45;
+      --red: #bd213d;
+      --gold: #f2c84b;
+      --paper: #faf9f5;
+      --muted: #46546b;
+      --rule: #cdd2db;
+      --surround: #e4e7ed;
+      --font-sans: Aptos, "Segoe UI", Arial, sans-serif;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      display: grid;
+      place-items: center;
+      min-height: 100vh;
+      min-height: 100dvh;
+      margin: 0;
+      background: var(--surround);
+      color: var(--navy);
+      font-family: var(--font-sans);
+    }
+
+    .slide {
+      container-type: inline-size;
+      width: min(100vw, calc(100dvh * 16 / 9));
+      aspect-ratio: 16 / 9;
+      background: var(--paper);
+      background-image: linear-gradient(
+        to right,
+        var(--navy) 0 84%,
+        var(--red) 84% 97%,
+        var(--gold) 97% 100%
+      );
+      background-repeat: no-repeat;
+      background-size: 100% 0.98%;
+    }
+
+    .slide__layout {
+      display: grid;
+      grid-template-rows: auto minmax(0, 1fr) auto;
+      width: 100%;
+      height: 100%;
+      padding: 2.55cqw 5cqw 2.75cqw;
+    }
+
+    .slide__header,
+    .slide__footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2cqw;
+    }
+
+    .slide__header {
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 1.45cqw;
+    }
+
+    .slide__header p,
+    .slide__footer p {
+      margin: 0;
+    }
+
+    .programme {
+      font-size: 1.45cqw;
+      font-weight: 700;
+    }
+
+    .session {
+      color: var(--muted);
+      font-size: 1.4cqw;
+      font-weight: 600;
+      text-align: right;
+    }
+
+    .intro {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 3.4cqw;
+      min-height: 0;
+      padding-block: 3cqw;
+    }
+
+    .greeting {
+      margin: 0;
+      font-size: 4.7cqw;
+      font-weight: 750;
+      letter-spacing: -0.035em;
+      line-height: 1.03;
+    }
+
+    .greeting::before {
+      display: block;
+      width: 3.5cqw;
+      height: 0.32cqw;
+      margin-bottom: 1.35cqw;
+      background: var(--red);
+      content: "";
+    }
+
+    .greeting__continuation {
+      display: block;
+      margin-top: 0.65cqw;
+      color: var(--muted);
+      font-size: 2.18cqw;
+      font-weight: 400;
+      letter-spacing: 0;
+      line-height: 1.25;
+    }
+
+    .intro__columns {
+      display: grid;
+      grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+      gap: 3.5cqw;
+    }
+
+    .intro__columns h2 {
+      margin: 0;
+      font-size: 2.45cqw;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+
+    .profile__role {
+      margin: 0.58cqw 0 1.3cqw;
+      font-size: 1.74cqw;
+      font-weight: 600;
+      line-height: 1.28;
+    }
+
+    .team {
+      padding-left: 3.5cqw;
+      border-left: 1px solid var(--rule);
+    }
+
+    .intro__list {
+      display: grid;
+      gap: 0.75cqw;
+      margin: 0;
+      padding-left: 1.25em;
+      color: var(--muted);
+      font-size: 1.68cqw;
+      line-height: 1.28;
+    }
+
+    .intro__list li::marker {
+      color: var(--red);
+    }
+
+    .team__scope {
+      margin: 0.58cqw 0 0;
+      color: var(--muted);
+      font-size: 1.68cqw;
+      line-height: 1.28;
+    }
+
+    .team .intro__list {
+      margin-top: 1.2cqw;
+    }
+
+    .slide__footer {
+      justify-content: flex-end;
+      border-top: 1px solid var(--rule);
+      padding-top: 1.42cqw;
+    }
+
+    .slide__page {
+      color: var(--muted);
+      font-size: 1.4cqw;
+      font-weight: 600;
+      font-variant-numeric: tabular-nums;
+      line-height: 1.25;
+    }
+
+    @page {
+      size: 13.3333in 7.5in;
+      margin: 0;
+    }
+
+    @media print {
+      html {
+        print-color-adjust: exact;
+      }
+
+      body {
+        display: block;
+        min-height: 0;
+        background: white;
+      }
+
+      .slide {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="slide" aria-labelledby="intro-title">
+    <div class="slide__layout">
+      <header class="slide__header">
+        <p class="programme">Malaysia Strategic Leadership Programme</p>
+        <p class="session">Dialogue with Korean Civil Servants</p>
+      </header>
+
+      <section class="intro">
+        <h1 class="greeting" id="intro-title" lang="ms">
+          Salam sejahtera.
+          <span class="greeting__continuation">Saya gembira dapat bertemu dengan anda semua.</span>
+        </h1>
+
+        <div class="intro__columns">
+          <section aria-labelledby="speaker-name">
+            <h2 id="speaker-name">Kim Dong Hyeon</h2>
+            <p class="profile__role">Head of the Intelligent Information Planning Team</p>
+            <ul class="intro__list">
+              <li>With the Ministry of Employment and Labor since 2008</li>
+              <li>Three years as a programmer before joining the civil service</li>
+            </ul>
+          </section>
+
+          <section class="team" aria-labelledby="team-name">
+            <h2 id="team-name">Intelligent Information Planning Team</h2>
+            <p class="team__scope">Our work covers the Ministry and its 12 affiliated organizations.</p>
+            <ul class="intro__list">
+              <li>Develop IT strategy and policy</li>
+              <li>Manage IT resources and build and operate IT infrastructure</li>
+              <li>Protect IT systems and oversee personal data protection</li>
+              <li>Promote data-driven public administration</li>
+              <li>Plan and develop AI services for employment and labor</li>
+            </ul>
+          </section>
+        </div>
+      </section>
+
+      <footer class="slide__footer">
+        <p class="slide__page" aria-label="Page 1 of 14">1 / 14</p>
+      </footer>
+    </div>
+  </main>
+</body>
+</html>
