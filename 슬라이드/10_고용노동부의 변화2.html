@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MOEL Helped Staff Build AI Tools</title>
+  <style>
+    :root {
+      --navy: #101f45;
+      --red: #bd213d;
+      --gold: #f2c84b;
+      --paper: #faf9f5;
+      --muted: #46546b;
+      --rule: #cdd2db;
+      --surround: #e4e7ed;
+      --font-sans: Aptos, "Segoe UI", Arial, sans-serif;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      display: grid;
+      place-items: center;
+      min-height: 100vh;
+      min-height: 100dvh;
+      margin: 0;
+      background: var(--surround);
+      color: var(--navy);
+      font-family: var(--font-sans);
+    }
+
+    .slide {
+      container-type: inline-size;
+      width: min(100vw, calc(100dvh * 16 / 9));
+      aspect-ratio: 16 / 9;
+      background: var(--paper);
+      background-image: linear-gradient(
+        to right,
+        var(--navy) 0 84%,
+        var(--red) 84% 97%,
+        var(--gold) 97% 100%
+      );
+      background-repeat: no-repeat;
+      background-size: 100% 0.98%;
+    }
+
+    .slide__layout {
+      display: grid;
+      grid-template-rows: auto minmax(0, 1fr) auto;
+      width: 100%;
+      height: 100%;
+      padding: 2.55cqw 5cqw 2.75cqw;
+    }
+
+    .slide__header,
+    .slide__footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2cqw;
+    }
+
+    .slide__header {
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 1.45cqw;
+    }
+
+    .slide__header p,
+    .slide__footer p {
+      margin: 0;
+    }
+
+    .programme {
+      font-size: 1.45cqw;
+      font-weight: 700;
+    }
+
+    .session {
+      color: var(--muted);
+      font-size: 1.4cqw;
+      font-weight: 600;
+      text-align: right;
+    }
+
+    .story {
+      display: grid;
+      align-content: center;
+      gap: 1.7cqw;
+      min-height: 0;
+    }
+
+    .story__title {
+      margin: 0;
+      font-size: 3.8cqw;
+      font-weight: 750;
+      letter-spacing: -0.035em;
+      line-height: 1.02;
+    }
+
+    .story__title::before {
+      display: block;
+      width: 3.5cqw;
+      height: 0.32cqw;
+      margin-bottom: 0.9cqw;
+      background: var(--red);
+      content: "";
+    }
+
+    .story__columns {
+      display: grid;
+      grid-template-columns: minmax(0, 36cqw) minmax(0, 1fr);
+      align-items: center;
+      gap: 4cqw;
+    }
+
+    .events {
+      display: grid;
+      gap: 1.65cqw;
+    }
+
+    .event + .event {
+      border-top: 1px solid var(--rule);
+      padding-top: 1.35cqw;
+    }
+
+    .event__date {
+      display: block;
+      margin-bottom: 0.4cqw;
+      color: var(--muted);
+      font-size: 1.38cqw;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .event h2 {
+      margin: 0;
+      font-size: 2.15cqw;
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      line-height: 1.15;
+    }
+
+    .event__count {
+      margin: 0.48cqw 0 0;
+      font-size: 1.85cqw;
+      font-weight: 700;
+      line-height: 1.04;
+    }
+
+    .event__count strong {
+      color: var(--red);
+      font-size: 3.75cqw;
+      font-weight: 750;
+      letter-spacing: -0.045em;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .event__detail {
+      margin: 0.6cqw 0 0;
+      color: var(--muted);
+      font-size: 1.58cqw;
+      line-height: 1.29;
+      text-wrap: pretty;
+    }
+
+    .release {
+      margin: 0;
+    }
+
+    .release__label {
+      margin-bottom: 0.5cqw;
+      color: var(--muted);
+      font-size: 1.3cqw;
+      font-weight: 650;
+      line-height: 1.2;
+    }
+
+    .release a {
+      display: block;
+      border: 1px solid var(--rule);
+    }
+
+    .release a:focus-visible {
+      outline: 2px solid var(--red);
+      outline-offset: 2px;
+    }
+
+    .release img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+
+    .slide__footer {
+      justify-content: flex-end;
+      border-top: 1px solid var(--rule);
+      padding-top: 1.42cqw;
+    }
+
+    .slide__page {
+      color: var(--muted);
+      font-size: 1.4cqw;
+      font-weight: 600;
+      font-variant-numeric: tabular-nums;
+      line-height: 1.25;
+    }
+
+    @page {
+      size: 13.3333in 7.5in;
+      margin: 0;
+    }
+
+    @media print {
+      html {
+        print-color-adjust: exact;
+      }
+
+      body {
+        display: block;
+        min-height: 0;
+        background: white;
+      }
+
+      .slide {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="slide" aria-labelledby="story-title">
+    <div class="slide__layout">
+      <header class="slide__header">
+        <p class="programme">Malaysia Strategic Leadership Programme</p>
+        <p class="session">Dialogue with Korean Civil Servants</p>
+      </header>
+
+      <section class="story" aria-labelledby="story-title">
+        <h1 class="story__title" id="story-title">MOEL Helped Staff Build AI Tools</h1>
+
+        <div class="story__columns">
+          <div class="events">
+            <section class="event" aria-labelledby="hackathon-title">
+              <time class="event__date" datetime="2026-04">April 2026</time>
+              <h2 id="hackathon-title">Vibe Coding Workshop and Hackathon</h2>
+              <p class="event__count"><strong>116</strong> teams applied</p>
+              <p class="event__detail">There was room for 40 teams. Staff learned vibe coding and built prototypes in one day.</p>
+            </section>
+
+            <section class="event" aria-labelledby="competition-title">
+              <time class="event__date" datetime="2026-11">November 2026</time>
+              <h2 id="competition-title">Staff AI Tool Competition</h2>
+              <p class="event__count"><strong>76</strong> teams entered</p>
+            </section>
+          </div>
+
+          <figure class="release">
+            <figcaption class="release__label">MOEL press release · 9 April 2026</figcaption>
+            <a href="../자료/해커톤_EN.png" target="_blank" rel="noopener" aria-label="Open the full English hackathon press release in a new tab">
+              <img src="../자료/해커톤_EN.png" width="1536" height="1024" alt="MOEL press release announcing the vibe coding workshop and hackathon, with 116 teams applying for 40 places">
+            </a>
+          </figure>
+        </div>
+      </section>
+
+      <footer class="slide__footer">
+        <p class="slide__page" aria-label="Page 9 of 14">9 / 14</p>
+      </footer>
+    </div>
+  </main>
+</body>
+</html>

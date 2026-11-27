@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Keep Building AI In-House</title>
+  <style>
+    :root {
+      --navy: #101f45;
+      --red: #bd213d;
+      --gold: #f2c84b;
+      --paper: #faf9f5;
+      --muted: #46546b;
+      --rule: #cdd2db;
+      --surround: #e4e7ed;
+      --font-sans: Aptos, "Segoe UI", Arial, sans-serif;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      display: grid;
+      place-items: center;
+      min-height: 100vh;
+      min-height: 100dvh;
+      margin: 0;
+      background: var(--surround);
+      color: var(--navy);
+      font-family: var(--font-sans);
+    }
+
+    .slide {
+      container-type: inline-size;
+      width: min(100vw, calc(100dvh * 16 / 9));
+      aspect-ratio: 16 / 9;
+      background: var(--paper);
+      background-image: linear-gradient(
+        to right,
+        var(--navy) 0 84%,
+        var(--red) 84% 97%,
+        var(--gold) 97% 100%
+      );
+      background-repeat: no-repeat;
+      background-size: 100% 0.98%;
+    }
+
+    .slide__layout {
+      display: grid;
+      grid-template-rows: auto minmax(0, 1fr) auto;
+      width: 100%;
+      height: 100%;
+      padding: 2.55cqw 5cqw 2.75cqw;
+    }
+
+    .slide__header,
+    .slide__footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2cqw;
+    }
+
+    .slide__header {
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 1.45cqw;
+    }
+
+    .slide__header p,
+    .slide__footer p {
+      margin: 0;
+    }
+
+    .programme {
+      font-size: 1.45cqw;
+      font-weight: 700;
+    }
+
+    .session {
+      color: var(--muted);
+      font-size: 1.4cqw;
+      font-weight: 600;
+      text-align: right;
+    }
+
+    .story {
+      display: grid;
+      align-content: center;
+      gap: 1.7cqw;
+      min-height: 0;
+    }
+
+    .story__title {
+      margin: 0;
+      font-size: 5.45cqw;
+      font-weight: 750;
+      letter-spacing: -0.045em;
+      line-height: 1.02;
+    }
+
+    .story__title::before {
+      display: block;
+      width: 3.5cqw;
+      height: 0.32cqw;
+      margin-bottom: 1.05cqw;
+      background: var(--red);
+      content: "";
+    }
+
+    .closing-points {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 2.3cqw;
+      margin-top: 1.5cqw;
+    }
+
+    .closing-point {
+      padding-top: 1.15cqw;
+      border-top: 1px solid var(--rule);
+    }
+
+    .closing-point h2 {
+      margin: 0;
+      font-size: 2.12cqw;
+      font-weight: 750;
+      letter-spacing: -0.025em;
+      line-height: 1.14;
+    }
+
+    .closing-point p {
+      margin: 0.65cqw 0 0;
+      color: var(--muted);
+      font-size: 1.62cqw;
+      line-height: 1.34;
+      text-wrap: pretty;
+    }
+
+
+    .slide__footer {
+      justify-content: flex-end;
+      border-top: 1px solid var(--rule);
+      padding-top: 1.42cqw;
+    }
+
+    .slide__page {
+      color: var(--muted);
+      font-size: 1.4cqw;
+      font-weight: 600;
+      font-variant-numeric: tabular-nums;
+      line-height: 1.25;
+    }
+
+    @page {
+      size: 13.3333in 7.5in;
+      margin: 0;
+    }
+
+    @media print {
+      html {
+        print-color-adjust: exact;
+      }
+
+      body {
+        display: block;
+        min-height: 0;
+        background: white;
+      }
+
+      .slide {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="slide" aria-labelledby="story-title">
+    <div class="slide__layout">
+      <header class="slide__header">
+        <p class="programme">Malaysia Strategic Leadership Programme</p>
+        <p class="session">Dialogue with Korean Civil Servants</p>
+      </header>
+
+      <section class="story" aria-labelledby="story-title">
+        <h1 class="story__title" id="story-title">Keep Building AI In-House</h1>
+
+        <div class="closing-points">
+          <section class="closing-point" aria-labelledby="setbacks-title">
+            <h2 id="setbacks-title">Expect setbacks</h2>
+            <p>Some prototypes will fail. Tools that work may see little use, and generative AI can give wrong answers.</p>
+          </section>
+
+          <section class="closing-point" aria-labelledby="expertise-title">
+            <h2 id="expertise-title">Build on what you know</h2>
+            <p>Civil servants know their work firsthand. Job stability gives them room to experiment with vibe coding.</p>
+          </section>
+
+          <section class="closing-point" aria-labelledby="change-title">
+            <h2 id="change-title">Keep improving how we work</h2>
+            <p>Even top performers may prefer familiar ways of working. Persist with changes that help the whole team work better.</p>
+          </section>
+        </div>
+      </section>
+
+      <footer class="slide__footer">
+        <p class="slide__page" aria-label="Page 14 of 14">14 / 14</p>
+      </footer>
+    </div>
+  </main>
+</body>
+</html>

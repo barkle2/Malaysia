@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How MOEL Enabled Staff to Build AI</title>
+  <style>
+    :root {
+      --navy: #101f45;
+      --red: #bd213d;
+      --gold: #f2c84b;
+      --paper: #faf9f5;
+      --muted: #46546b;
+      --rule: #cdd2db;
+      --surround: #e4e7ed;
+      --font-sans: Aptos, "Segoe UI", Arial, sans-serif;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      display: grid;
+      place-items: center;
+      min-height: 100vh;
+      min-height: 100dvh;
+      margin: 0;
+      background: var(--surround);
+      color: var(--navy);
+      font-family: var(--font-sans);
+    }
+
+    .slide {
+      container-type: inline-size;
+      width: min(100vw, calc(100dvh * 16 / 9));
+      aspect-ratio: 16 / 9;
+      background: var(--paper);
+      background-image: linear-gradient(
+        to right,
+        var(--navy) 0 84%,
+        var(--red) 84% 97%,
+        var(--gold) 97% 100%
+      );
+      background-repeat: no-repeat;
+      background-size: 100% 0.98%;
+    }
+
+    .slide__layout {
+      display: grid;
+      grid-template-rows: auto minmax(0, 1fr) auto;
+      width: 100%;
+      height: 100%;
+      padding: 2.55cqw 5cqw 2.75cqw;
+    }
+
+    .slide__header,
+    .slide__footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2cqw;
+    }
+
+    .slide__header {
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 1.45cqw;
+    }
+
+    .slide__header p,
+    .slide__footer p {
+      margin: 0;
+    }
+
+    .programme {
+      font-size: 1.45cqw;
+      font-weight: 700;
+    }
+
+    .session {
+      color: var(--muted);
+      font-size: 1.4cqw;
+      font-weight: 600;
+      text-align: right;
+    }
+
+    .story {
+      display: grid;
+      align-content: center;
+      gap: 1.7cqw;
+      min-height: 0;
+    }
+
+    .story__title {
+      margin: 0;
+      font-size: 3.8cqw;
+      font-weight: 750;
+      letter-spacing: -0.035em;
+      line-height: 1.02;
+    }
+
+    .story__title::before {
+      display: block;
+      width: 3.5cqw;
+      height: 0.32cqw;
+      margin-bottom: 0.9cqw;
+      background: var(--red);
+      content: "";
+    }
+
+    .capability {
+      display: grid;
+      grid-template-columns: minmax(0, 31cqw) minmax(0, 1fr);
+      align-items: start;
+      gap: 3cqw;
+    }
+
+    .capability h2 {
+      margin: 0;
+      padding-left: 0.9cqw;
+      border-left: 0.27cqw solid var(--red);
+      font-size: 2.55cqw;
+      font-weight: 750;
+      letter-spacing: -0.03em;
+      line-height: 1.08;
+      text-wrap: balance;
+    }
+
+    .capability__message {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.7cqw;
+      line-height: 1.32;
+      text-wrap: pretty;
+    }
+
+    .capability__message strong {
+      color: var(--navy);
+    }
+
+    .hackathon {
+      margin: 0;
+    }
+
+    .hackathon img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border: 1px solid var(--rule);
+    }
+
+    .hackathon figcaption {
+      margin-top: 0.55cqw;
+      color: var(--muted);
+      font-size: 1.3cqw;
+      font-weight: 650;
+      line-height: 1.2;
+    }
+
+
+    .slide__footer {
+      justify-content: flex-end;
+      border-top: 1px solid var(--rule);
+      padding-top: 1.42cqw;
+    }
+
+    .slide__page {
+      color: var(--muted);
+      font-size: 1.4cqw;
+      font-weight: 600;
+      font-variant-numeric: tabular-nums;
+      line-height: 1.25;
+    }
+
+    @page {
+      size: 13.3333in 7.5in;
+      margin: 0;
+    }
+
+    @media print {
+      html {
+        print-color-adjust: exact;
+      }
+
+      body {
+        display: block;
+        min-height: 0;
+        background: white;
+      }
+
+      .slide {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="slide" aria-labelledby="story-title">
+    <div class="slide__layout">
+      <header class="slide__header">
+        <p class="programme">Malaysia Strategic Leadership Programme</p>
+        <p class="session">Dialogue with Korean Civil Servants</p>
+      </header>
+
+      <section class="story" aria-labelledby="story-title">
+        <h1 class="story__title" id="story-title">How MOEL Enabled Staff to Build AI</h1>
+
+        <section class="capability" aria-labelledby="capability-title">
+          <h2 id="capability-title">2. Build AI skills across the Ministry</h2>
+          <p class="capability__message"><strong>Colleagues are the first testers</strong> of AI tools built in-house. Staff across the Ministry need the skills to use those tools confidently in their daily work and give feedback to the people who build them.</p>
+        </section>
+
+        <figure class="hackathon">
+          <img src="../자료/해커톤_참가자.png" width="1252" height="285" alt="Participants gathered for a group photo at the MOEL Vibe Coding Workshop and Hackathon">
+          <figcaption>MOEL Vibe Coding Workshop and Hackathon · April 2026</figcaption>
+        </figure>
+      </section>
+
+      <footer class="slide__footer">
+        <p class="slide__page" aria-label="Page 11 of 14">11 / 14</p>
+      </footer>
+    </div>
+  </main>
+</body>
+</html>

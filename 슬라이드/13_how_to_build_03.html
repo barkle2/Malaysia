@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How MOEL Enabled Staff to Build AI</title>
+  <style>
+    :root {
+      --navy: #101f45;
+      --red: #bd213d;
+      --gold: #f2c84b;
+      --paper: #faf9f5;
+      --muted: #46546b;
+      --rule: #cdd2db;
+      --surround: #e4e7ed;
+      --font-sans: Aptos, "Segoe UI", Arial, sans-serif;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      display: grid;
+      place-items: center;
+      min-height: 100vh;
+      min-height: 100dvh;
+      margin: 0;
+      background: var(--surround);
+      color: var(--navy);
+      font-family: var(--font-sans);
+    }
+
+    .slide {
+      container-type: inline-size;
+      width: min(100vw, calc(100dvh * 16 / 9));
+      aspect-ratio: 16 / 9;
+      background: var(--paper);
+      background-image: linear-gradient(
+        to right,
+        var(--navy) 0 84%,
+        var(--red) 84% 97%,
+        var(--gold) 97% 100%
+      );
+      background-repeat: no-repeat;
+      background-size: 100% 0.98%;
+    }
+
+    .slide__layout {
+      display: grid;
+      grid-template-rows: auto minmax(0, 1fr) auto;
+      width: 100%;
+      height: 100%;
+      padding: 2.55cqw 5cqw 2.75cqw;
+    }
+
+    .slide__header,
+    .slide__footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2cqw;
+    }
+
+    .slide__header {
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 1.45cqw;
+    }
+
+    .slide__header p,
+    .slide__footer p {
+      margin: 0;
+    }
+
+    .programme {
+      font-size: 1.45cqw;
+      font-weight: 700;
+    }
+
+    .session {
+      color: var(--muted);
+      font-size: 1.4cqw;
+      font-weight: 600;
+      text-align: right;
+    }
+
+    .story {
+      display: grid;
+      align-content: center;
+      gap: 1.7cqw;
+      min-height: 0;
+    }
+
+    .story__title {
+      margin: 0;
+      font-size: 3.8cqw;
+      font-weight: 750;
+      letter-spacing: -0.035em;
+      line-height: 1.02;
+    }
+
+    .story__title::before {
+      display: block;
+      width: 3.5cqw;
+      height: 0.32cqw;
+      margin-bottom: 0.9cqw;
+      background: var(--red);
+      content: "";
+    }
+
+    .story__columns {
+      display: grid;
+      grid-template-columns: minmax(0, 30cqw) minmax(0, 1fr);
+      gap: 3cqw;
+      align-items: center;
+    }
+
+    .capability {
+      display: grid;
+      gap: 1cqw;
+    }
+
+    .capability h2 {
+      margin: 0;
+      padding-left: 0.9cqw;
+      border-left: 0.27cqw solid var(--red);
+      font-size: 2.55cqw;
+      font-weight: 750;
+      letter-spacing: -0.03em;
+      line-height: 1.08;
+    }
+
+    .capability__message,
+    .support-option p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.48cqw;
+      line-height: 1.32;
+      text-wrap: pretty;
+    }
+
+    .support-option {
+      border-top: 1px solid var(--rule);
+      padding-top: 0.8cqw;
+    }
+
+    .support-option h3 {
+      margin: 0 0 0.35cqw;
+      font-size: 1.92cqw;
+      font-weight: 750;
+      letter-spacing: -0.025em;
+      line-height: 1.14;
+    }
+
+    .token-chart {
+      margin: 0;
+      padding: 1.05cqw 1.05cqw 0.75cqw;
+      border: 1px solid var(--rule);
+      background: #fff;
+    }
+
+    .token-chart figcaption {
+      padding-left: 0.7cqw;
+    }
+
+    .token-chart__title {
+      display: block;
+      font-size: 1.85cqw;
+      font-weight: 750;
+      letter-spacing: -0.02em;
+      line-height: 1.16;
+    }
+
+    .token-chart__unit {
+      display: block;
+      margin-top: 0.3cqw;
+      color: var(--muted);
+      font-size: 1.2cqw;
+    }
+
+    .token-chart svg {
+      display: block;
+      width: 100%;
+      height: auto;
+      font-family: var(--font-sans);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .token-chart__axis line {
+      stroke: var(--rule);
+    }
+
+    .token-chart__axis text {
+      fill: var(--muted);
+      font-size: 15px;
+      text-anchor: end;
+    }
+
+    .token-chart__bar rect {
+      fill: var(--navy);
+    }
+
+    .token-chart__bar text {
+      text-anchor: middle;
+    }
+
+    .token-chart__value {
+      fill: var(--navy);
+      font-size: 16px;
+      font-weight: 750;
+    }
+
+    .token-chart__month {
+      fill: var(--muted);
+      font-size: 16px;
+    }
+
+    .token-chart__bar--peak rect,
+    .token-chart__bar--peak .token-chart__value {
+      fill: var(--red);
+    }
+
+    .token-chart__source {
+      display: block;
+      margin: 0 0.7cqw;
+      color: var(--muted);
+      font-size: 1.06cqw;
+    }
+
+
+    .slide__footer {
+      justify-content: flex-end;
+      border-top: 1px solid var(--rule);
+      padding-top: 1.42cqw;
+    }
+
+    .slide__page {
+      color: var(--muted);
+      font-size: 1.4cqw;
+      font-weight: 600;
+      font-variant-numeric: tabular-nums;
+      line-height: 1.25;
+    }
+
+    @page {
+      size: 13.3333in 7.5in;
+      margin: 0;
+    }
+
+    @media print {
+      html {
+        print-color-adjust: exact;
+      }
+
+      body {
+        display: block;
+        min-height: 0;
+        background: white;
+      }
+
+      .slide {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="slide" aria-labelledby="story-title">
+    <div class="slide__layout">
+      <header class="slide__header">
+        <p class="programme">Malaysia Strategic Leadership Programme</p>
+        <p class="session">Dialogue with Korean Civil Servants</p>
+      </header>
+
+      <section class="story" aria-labelledby="story-title">
+        <h1 class="story__title" id="story-title">How MOEL Enabled Staff to Build AI</h1>
+
+        <div class="story__columns">
+          <section class="capability" aria-labelledby="capability-title">
+            <h2 id="capability-title">3. Provide infrastructure and funding</h2>
+            <p class="capability__message">Staff may start by paying for their own large language model (LLM) subscriptions. As costs rise, they may stop developing their tools.</p>
+
+            <section class="support-option" aria-labelledby="subscription-title">
+              <h3 id="subscription-title">Cover LLM subscriptions</h3>
+              <p>Fund staff access to paid models for development and testing.</p>
+            </section>
+            <section class="support-option" aria-labelledby="gpu-title">
+              <h3 id="gpu-title">Run LLMs on Ministry GPUs</h3>
+              <p>Host models in-house and make them available to staff.</p>
+            </section>
+          </section>
+
+          <figure class="token-chart">
+            <figcaption>
+              <span class="token-chart__title" id="token-chart-title">MOEL Monthly API Token Usage</span>
+              <span class="token-chart__unit">Jan–Oct 2026 · Billions of tokens</span>
+            </figcaption>
+            <svg viewBox="0 22 704 325" width="704" height="325" role="img" aria-labelledby="token-chart-title token-chart-detail">
+              <desc id="token-chart-detail">Monthly input and output tokens combined. Jan 228,934,000; Feb 141,477,056; Mar 172,949,508; Apr 410,500,784; May 720,823,094; Jun 2,651,213,668; Jul 4,048,179,782; Aug 6,428,810,526; Sep 4,168,076,474; Oct 13,977,179,217.</desc>
+              <g class="token-chart__axis" aria-hidden="true">
+                <line x1="53" x2="681" y1="304.00" y2="304.00"/>
+                <text x="43" y="309">0</text>
+                <line x1="53" x2="681" y1="219.00" y2="219.00"/>
+                <text x="43" y="224">5</text>
+                <line x1="53" x2="681" y1="134.00" y2="134.00"/>
+                <text x="43" y="139">10</text>
+                <line x1="53" x2="681" y1="49.00" y2="49.00"/>
+                <text x="43" y="54">15</text>
+              </g>
+                <g class="token-chart__bar">
+                  <title>Jan: 228,934,000 tokens</title>
+                  <rect x="66" y="300.11" width="36" height="3.89"/>
+                  <text class="token-chart__value" x="84" y="292.11">0.23</text>
+                  <text class="token-chart__month" x="84" y="329">Jan</text>
+                </g>
+                <g class="token-chart__bar">
+                  <title>Feb: 141,477,056 tokens</title>
+                  <rect x="129" y="301.59" width="36" height="2.41"/>
+                  <text class="token-chart__value" x="147" y="293.59">0.14</text>
+                  <text class="token-chart__month" x="147" y="329">Feb</text>
+                </g>
+                <g class="token-chart__bar">
+                  <title>Mar: 172,949,508 tokens</title>
+                  <rect x="192" y="301.06" width="36" height="2.94"/>
+                  <text class="token-chart__value" x="210" y="293.06">0.17</text>
+                  <text class="token-chart__month" x="210" y="329">Mar</text>
+                </g>
+                <g class="token-chart__bar">
+                  <title>Apr: 410,500,784 tokens</title>
+                  <rect x="255" y="297.02" width="36" height="6.98"/>
+                  <text class="token-chart__value" x="273" y="289.02">0.41</text>
+                  <text class="token-chart__month" x="273" y="329">Apr</text>
+                </g>
+                <g class="token-chart__bar">
+                  <title>May: 720,823,094 tokens</title>
+                  <rect x="318" y="291.75" width="36" height="12.25"/>
+                  <text class="token-chart__value" x="336" y="283.75">0.72</text>
+                  <text class="token-chart__month" x="336" y="329">May</text>
+                </g>
+                <g class="token-chart__bar">
+                  <title>Jun: 2,651,213,668 tokens</title>
+                  <rect x="381" y="258.93" width="36" height="45.07"/>
+                  <text class="token-chart__value" x="399" y="250.93">2.65</text>
+                  <text class="token-chart__month" x="399" y="329">Jun</text>
+                </g>
+                <g class="token-chart__bar">
+                  <title>Jul: 4,048,179,782 tokens</title>
+                  <rect x="444" y="235.18" width="36" height="68.82"/>
+                  <text class="token-chart__value" x="462" y="227.18">4.05</text>
+                  <text class="token-chart__month" x="462" y="329">Jul</text>
+                </g>
+                <g class="token-chart__bar">
+                  <title>Aug: 6,428,810,526 tokens</title>
+                  <rect x="507" y="194.71" width="36" height="109.29"/>
+                  <text class="token-chart__value" x="525" y="186.71">6.43</text>
+                  <text class="token-chart__month" x="525" y="329">Aug</text>
+                </g>
+                <g class="token-chart__bar">
+                  <title>Sep: 4,168,076,474 tokens</title>
+                  <rect x="570" y="233.14" width="36" height="70.86"/>
+                  <text class="token-chart__value" x="588" y="225.14">4.17</text>
+                  <text class="token-chart__month" x="588" y="329">Sep</text>
+                </g>
+                <g class="token-chart__bar token-chart__bar--peak">
+                  <title>Oct: 13,977,179,217 tokens</title>
+                  <rect x="633" y="66.39" width="36" height="237.61"/>
+                  <text class="token-chart__value" x="651" y="58.39">13.98</text>
+                  <text class="token-chart__month" x="651" y="329">Oct</text>
+                </g>
+            </svg>
+            <a class="token-chart__source" href="../자료/2026년 API월별 사용현황(10월말 기준).xlsx">Source: MOEL monthly API usage workbook · Input and output tokens combined</a>
+          </figure>
+        </div>
+      </section>
+
+      <footer class="slide__footer">
+        <p class="slide__page" aria-label="Page 12 of 14">12 / 14</p>
+      </footer>
+    </div>
+  </main>
+</body>
+</html>

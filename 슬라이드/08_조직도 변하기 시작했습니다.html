@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Ministry Began to Change</title>
+  <style>
+    :root {
+      --navy: #101f45;
+      --red: #bd213d;
+      --gold: #f2c84b;
+      --paper: #faf9f5;
+      --muted: #46546b;
+      --rule: #cdd2db;
+      --surround: #e4e7ed;
+      --font-sans: Aptos, "Segoe UI", Arial, sans-serif;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      display: grid;
+      place-items: center;
+      min-height: 100vh;
+      min-height: 100dvh;
+      margin: 0;
+      background: var(--surround);
+      color: var(--navy);
+      font-family: var(--font-sans);
+    }
+
+    .slide {
+      container-type: inline-size;
+      width: min(100vw, calc(100dvh * 16 / 9));
+      aspect-ratio: 16 / 9;
+      background: var(--paper);
+      background-image: linear-gradient(
+        to right,
+        var(--navy) 0 84%,
+        var(--red) 84% 97%,
+        var(--gold) 97% 100%
+      );
+      background-repeat: no-repeat;
+      background-size: 100% 0.98%;
+    }
+
+    .slide__layout {
+      display: grid;
+      grid-template-rows: auto minmax(0, 1fr) auto;
+      width: 100%;
+      height: 100%;
+      padding: 2.55cqw 5cqw 2.75cqw;
+    }
+
+    .slide__header,
+    .slide__footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2cqw;
+    }
+
+    .slide__header {
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 1.45cqw;
+    }
+
+    .slide__header p,
+    .slide__footer p {
+      margin: 0;
+    }
+
+    .programme {
+      font-size: 1.45cqw;
+      font-weight: 700;
+    }
+
+    .session {
+      color: var(--muted);
+      font-size: 1.4cqw;
+      font-weight: 600;
+      text-align: right;
+    }
+
+    .story {
+      display: grid;
+      align-content: center;
+      gap: 1.7cqw;
+      min-height: 0;
+    }
+
+    .story__title {
+      margin: 0;
+      font-size: 3.8cqw;
+      font-weight: 750;
+      letter-spacing: -0.035em;
+      line-height: 1.02;
+    }
+
+    .story__title::before {
+      display: block;
+      width: 3.5cqw;
+      height: 0.32cqw;
+      margin-bottom: 0.9cqw;
+      background: var(--red);
+      content: "";
+    }
+
+    .story__columns {
+      display: grid;
+      grid-template-columns: minmax(0, 0.93fr) minmax(0, 1.07fr);
+      gap: 3.5cqw;
+    }
+
+    .story__column + .story__column {
+      border-left: 1px solid var(--rule);
+      padding-left: 3.5cqw;
+    }
+
+    .column__title {
+      margin: 0;
+      padding-bottom: 0.85cqw;
+      border-bottom: 1px solid var(--rule);
+      color: var(--red);
+      font-size: 1.45cqw;
+      font-weight: 750;
+      line-height: 1.18;
+    }
+
+    .milestone {
+      margin-top: 1.3cqw;
+    }
+
+    .milestone h3 {
+      margin: 0;
+      font-size: 2.15cqw;
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      line-height: 1.12;
+    }
+
+    .milestone__heading-with-icon {
+      display: flex;
+      align-items: center;
+      gap: 0.65cqw;
+    }
+
+    .milestone__heading-with-icon img {
+      flex: none;
+      width: 2.45cqw;
+      height: auto;
+      border-radius: 0.48cqw;
+    }
+
+    .milestone__date {
+      display: block;
+      margin-bottom: 0.32cqw;
+      color: var(--muted);
+      font-size: 1.32cqw;
+      font-weight: 650;
+      line-height: 1.18;
+    }
+
+    .milestone p {
+      margin: 0.53cqw 0 0;
+      color: var(--muted);
+      font-size: 1.64cqw;
+      line-height: 1.28;
+      text-wrap: pretty;
+    }
+
+    .milestone p strong {
+      color: var(--navy);
+    }
+
+    .slide__footer {
+      justify-content: flex-end;
+      border-top: 1px solid var(--rule);
+      padding-top: 1.42cqw;
+    }
+
+    .slide__page {
+      color: var(--muted);
+      font-size: 1.4cqw;
+      font-weight: 600;
+      font-variant-numeric: tabular-nums;
+      line-height: 1.25;
+    }
+
+    @page {
+      size: 13.3333in 7.5in;
+      margin: 0;
+    }
+
+    @media print {
+      html {
+        print-color-adjust: exact;
+      }
+
+      body {
+        display: block;
+        min-height: 0;
+        background: white;
+      }
+
+      .slide {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="slide" aria-labelledby="story-title">
+    <div class="slide__layout">
+      <header class="slide__header">
+        <p class="programme">Malaysia Strategic Leadership Programme</p>
+        <p class="session">Dialogue with Korean Civil Servants</p>
+      </header>
+
+      <section class="story" aria-labelledby="story-title">
+        <h1 class="story__title" id="story-title">The Ministry Began to Change</h1>
+
+        <div class="story__columns">
+          <section class="story__column" aria-labelledby="ministry-title">
+            <h2 class="column__title" id="ministry-title">Inside the Ministry</h2>
+
+            <div class="milestone">
+              <h3>A dedicated team</h3>
+              <p>In recognition of his AI work, Bohyun Park was promoted to lead the new <strong>Labor Administration AI Innovation Division</strong>. Staff joined him in the new division.</p>
+            </div>
+
+            <div class="milestone">
+              <h3>Funding to keep the service running</h3>
+              <p>The Ministry secured funding through the National Assembly&rsquo;s budget review to keep its AI labor law advice service operating.</p>
+            </div>
+          </section>
+
+          <section class="story__column" aria-labelledby="public-title">
+            <h2 class="column__title" id="public-title">Reaching the public</h2>
+
+            <div class="milestone">
+              <time class="milestone__date" datetime="2025-09">September 2025</time>
+              <h3>Public launch at the AX Summit</h3>
+              <p>The Ministry of Employment and Labor opened its AI labor law advice service to the public.</p>
+            </div>
+
+            <div class="milestone">
+              <time class="milestone__date" datetime="2025-10">October 2025</time>
+              <h3 class="milestone__heading-with-icon">
+                <img src="data:image/jpeg;base64,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" width="100" height="100" alt="">
+                <span>AI labor law advice on karrotmarket</span>
+              </h3>
+              <p>The service was added to the jobs section of karrotmarket, a platform with about <strong>20 million monthly users</strong> in Korea.</p>
+            </div>
+          </section>
+        </div>
+      </section>
+
+
+      <footer class="slide__footer">
+        <p class="slide__page" aria-label="Page 7 of 14">7 / 14</p>
+      </footer>
+    </div>
+  </main>
+</body>
+</html>
