@@ -86,7 +86,9 @@
 
     .story {
       display: grid;
-      align-content: center;
+      grid-template-rows: auto minmax(0, 1fr);
+      align-content: start;
+      padding-top: 1cqw;
       gap: 1.7cqw;
       min-height: 0;
     }
@@ -106,6 +108,12 @@
       margin-bottom: 0.9cqw;
       background: var(--red);
       content: "";
+    }
+
+    .story__content {
+      display: grid;
+      align-self: center;
+      gap: 2.5cqw;
     }
 
     .capability {
@@ -142,7 +150,6 @@
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 2cqw;
-      margin-top: 0.8cqw;
     }
 
     .support-option {
@@ -216,20 +223,22 @@
       <section class="story" aria-labelledby="story-title">
         <h1 class="story__title" id="story-title">How MOEL Enabled Staff to Build AI</h1>
 
-        <section class="capability" aria-labelledby="capability-title">
-          <h2 id="capability-title">4. Recognize and encourage initiative</h2>
-          <p class="capability__message">Many staff invest their own time and money in AI tools to <strong>make work easier for colleagues and improve services for the public.</strong></p>
-        </section>
+        <div class="story__content">
+          <section class="capability" aria-labelledby="capability-title">
+            <h2 id="capability-title">4. Recognize and encourage initiative</h2>
+            <p class="capability__message">Many staff invest their own time and money in AI tools to <strong>make work easier for colleagues and improve services for the public.</strong></p>
+          </section>
 
-        <div class="support-options">
-          <section class="support-option" aria-labelledby="early-ideas-title">
-            <h3 id="early-ideas-title">Give early ideas a fair chance</h3>
-            <p>Ask what problem the tool could solve and give staff time to explore the idea before judging its value.</p>
-          </section>
-          <section class="support-option" aria-labelledby="recognition-title">
-            <h3 id="recognition-title">Recognize the effort</h3>
-            <p>Praise and encouragement can motivate staff to keep building. Small incentives can reinforce that recognition.</p>
-          </section>
+          <div class="support-options">
+            <section class="support-option" aria-labelledby="early-ideas-title">
+              <h3 id="early-ideas-title">Give early ideas a fair chance</h3>
+              <p>Ask what problem the tool could solve and give staff time to explore the idea before judging its value.</p>
+            </section>
+            <section class="support-option" aria-labelledby="recognition-title">
+              <h3 id="recognition-title">Recognize the effort</h3>
+              <p>Praise and encouragement can motivate staff to keep building. Small incentives can reinforce that recognition.</p>
+            </section>
+          </div>
         </div>
       </section>
 
